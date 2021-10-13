@@ -1,15 +1,20 @@
 from requests import get, utils
 from datetime import datetime
 
+
 def currency_rates(code):
 
     response = get('http://www.cbr.ru/scripts/XML_daily.asp')
     encodings = utils.get_encoding_from_headers(response.headers)
     content = response.content.decode(encoding=encodings)
 
+
     my_list = content.split('<Valute ID=')
+
     # извлекаем дату, это брал уже из разбора
     data = datetime.strptime(my_list[0].split('"')[-4], '%d.%m.%Y').date()
+
+    # print(my_list)
     code = code.upper()
     for i in my_list:
         result = 0
@@ -20,9 +25,6 @@ def currency_rates(code):
             break
     if result == 0:
         print('None')
-
-
-
 
 currency_rates('ucD')
 currency_rates('eur')
