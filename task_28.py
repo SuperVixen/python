@@ -7,12 +7,11 @@
 # *Пример:*
 # 2 2
 #     4
-#
-def summa(num_1, num_2: int) -> int:
+#def summa(num_1, num_2: int) -> int:
     if num_2 == 0:
         return num_1
     else:
-        return num_1 + summa(1, num_2 - 1)
+        return summa(num_1 + 1, num_2 - 1)
 
 number_1 = int(input('Введите первое число: '))
 number_2 = int(input('Введите второе число: '))
