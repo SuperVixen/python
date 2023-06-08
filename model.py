@@ -65,14 +65,16 @@ class PhoneBook:
         for contact in self._phone_book:
             if index == contact.get('id'):
 
-                contact.pop('id')
-                contact.pop('name')
-                contact.pop('phone')
-                contact.pop('comment')
-
-                # contact['name'] = new.get('name', contact.get('name'))
-                # contact['phone'] = new.get('phone', contact.get('phone'))
-                # contact['comment'] = new.get('comment', contact.get('comment'))
+                # приветствую возможно поможет такая история
+                #
+                # def delete(self, index):
+                #     for contact in self._phone_book:
+                #         if index == contact.get('id'):
+                
+                self._phone_book.remove(contact)
+                
+                # а может и не поможет:)
+                
                 return #contact.get('name')
 
     # def show(self):
